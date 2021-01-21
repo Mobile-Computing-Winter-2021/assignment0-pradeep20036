@@ -1,5 +1,15 @@
 <resources>
-    <string name="app_name">HelloWorld</string>
-    <string name="Name">Hello World Pradeep Kumar</string>
+
+    <string name="app_name">Covid Safety Checker</string>
+    <string name="precaution_1">Do you wear mask in public places and social gatherings?[YES/NO]</string>
+    <string name="precaution_2">Do you keep maintain distancing at public places?[YES/NO]</string>
+    <string name="precaution_3">Do you regularly sanitize your hands after touching commonly used objects?[YES/NO]</string>
+    <string name="precaution_4">Do you wish people by handshaking and hugging?[YES/NO]</string>
+    <string name="enterName">Enter your Name</string>
+    <string name="submit">submit</string>
+    <string name="clear">clear</string>
+    <string name="enterAnswer">Enter your Answer</string>
+
+
 
 </resources>
