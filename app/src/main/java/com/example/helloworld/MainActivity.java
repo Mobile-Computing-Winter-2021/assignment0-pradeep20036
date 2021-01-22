@@ -13,22 +13,33 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    EditText et_name;
+    CheckBox checkBox1;
+    CheckBox checkBox2;
+    CheckBox checkBox3;
+    CheckBox checkBox4;
+    CheckBox checkBox5;
+    TextView tv_result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i
+
         setContentView(R.layout.activity_main);
+        et_name=findViewById(R.id.et_name);
+        checkBox1=findViewById(R.id.checkBox1);
+        checkBox2=findViewById(R.id.checkBox2);
+        checkBox3=findViewById(R.id.checkBox3);
+        checkBox4=findViewById(R.id.checkBox4);
+        checkBox5=findViewById(R.id.checkBox5);
+
     }
 
     public void gettingInputData(View view) {
 //    getting the input data and sending it to the send activity for display
 
-        EditText et_name=findViewById(R.id.et_name);
 
-        CheckBox checkBox1=findViewById(R.id.checkBox1);
-        CheckBox checkBox2=findViewById(R.id.checkBox2);
-        CheckBox checkBox3=findViewById(R.id.checkBox3);
-        CheckBox checkBox4=findViewById(R.id.checkBox4);
-        CheckBox checkBox5=findViewById(R.id.checkBox5);
         String name=et_name.getText().toString();
 
 //        getting the states of checkboxes and passing it to the next Activity
@@ -59,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 //        in first activity
         if(requestCode==2)
         {
-            TextView tv_result=findViewById(R.id.tv_result_display);
+            tv_result=findViewById(R.id.tv_result_display);
             int value=data.getIntExtra("color",0);
             if(value==1)
             {
@@ -73,6 +84,18 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
+
+    }
+
+    public void clearData(View view) {
+        et_name.setText("");
+        checkBox1.setChecked(false);
+        checkBox2.setChecked(false);
+        checkBox3.setChecked(false);
+        checkBox4.setChecked(false);
+        checkBox5.setChecked(false);
+        tv_result.setText("");
+        tv_result.setBackgroundColor(Color.WHITE);
 
     }
 }

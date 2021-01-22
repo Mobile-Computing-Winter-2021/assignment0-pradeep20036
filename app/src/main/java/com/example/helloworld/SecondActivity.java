@@ -57,12 +57,21 @@ public class SecondActivity extends AppCompatActivity {
         CheckBox checkBox4=findViewById(R.id.checkBox4);
         CheckBox checkBox5=findViewById(R.id.checkBox5);
 
-        et_name.setText(name);
+        et_name.setText("Dear, "+name);
         checkBox1.setChecked(ans1);
         checkBox2.setChecked(ans2);
         checkBox3.setChecked(ans3);
         checkBox4.setChecked(ans4);
         checkBox5.setChecked(ans5);
+
+        checkBox1.setClickable(false);
+        checkBox2.setClickable(false);
+        checkBox3.setClickable(false);
+        checkBox4.setClickable(false);
+        checkBox5.setClickable(false);
+
+        et_name.setClickable(false);
+        et_name.setFocusable(false);
 
     }
 
