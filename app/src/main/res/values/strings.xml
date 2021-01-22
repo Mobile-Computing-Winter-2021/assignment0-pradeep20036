@@ -1,14 +1,23 @@
 <resources>
 
-    <string name="app_name">Covid Safety Checker</string>
-    <string name="precaution_1">Do you wear mask in public places and social gatherings?[YES/NO]</string>
-    <string name="precaution_2">Do you keep maintain distancing at public places?[YES/NO]</string>
-    <string name="precaution_3">Do you regularly sanitize your hands after touching commonly used objects?[YES/NO]</string>
-    <string name="precaution_4">Do you wish people by handshaking and hugging?[YES/NO]</string>
+    <string name="app_name">Covid Safety Precaution Checker</string>
+    <string name="precaution_1">1. Wearing a mask when outside</string>
+    <string name="precaution_2">2. Washing hands frequently</string>
+    <string name="precaution_3">3. Maintaining 2 feet distance</string>
+    <string name="precaution_4">4. Covering nose and mouth while sneezing and coughing</string>
+    <string name="precaution_5">5. Taking health diets</string>
+
     <string name="enterName">Enter your Name</string>
     <string name="submit">submit</string>
     <string name="clear">clear</string>
+    <string name="yes_no">[YES/NO]</string>
     <string name="enterAnswer">Enter your Answer</string>
+    <string name="Activity2_Heading">Your Answers </string>
+
+    <string name="checkRiskStatus">Check Risk Status</string>
+
+
+
 
 
 

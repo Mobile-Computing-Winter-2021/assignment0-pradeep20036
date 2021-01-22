@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
     android:backgroundTintMode="screen"
     android:foregroundTint="#C12828"
     android:gravity="center_horizontal"
@@ -14,137 +16,167 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="76dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:background="#00B8D4"
         android:fontFamily="casual"
         android:gravity="center"
         android:padding="20dp"
-        android:text="Covid Safety Checker"
-        android:textSize="32sp"
+        android:text="@string/app_name"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:hint="Enter your Name"
+        android:inputType="textPersonName" />
+
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
         android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/et_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
-            android:ems="10"
-            android:hint="@string/enterName"
-            android:inputType="textPersonName"
-            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_precaution1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:padding="4dp"
             android:text="@string/precaution_1"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/et_ans_1"
+        <CheckBox
+            android:id="@+id/checkBox1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/enterAnswer"
-            android:inputType="textPersonName"
-            android:textColor="#60000000"
-            android:textSize="16sp" />
+            android:checked="false"
+            android:padding="4dp"
+            android:text="@string/yes_no" />
 
         <TextView
             android:id="@+id/tv_precaution2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:padding="4dp"
             android:text="@string/precaution_2"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/et_ans_2"
+        <CheckBox
+            android:id="@+id/checkBox2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/enterAnswer"
-            android:inputType="textPersonName"
-            android:textColor="#60000000"
-            android:textSize="16sp" />
+            android:padding="4dp"
+            android:text="@string/yes_no" />
 
         <TextView
             android:id="@+id/tv_precaution3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:padding="4dp"
             android:text="@string/precaution_3"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/et_ans_3"
+        <CheckBox
+            android:id="@+id/checkBox3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/enterAnswer"
-            android:inputType="textPersonName"
-            android:textColor="#60000000"
-            android:textSize="16sp" />
+            android:padding="4dp"
+            android:text="@string/yes_no" />
 
         <TextView
             android:id="@+id/tv_precaution4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="@string/precaution_3"
+            android:padding="4dp"
+            android:text="@string/precaution_4"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/et_ans_4"
+        <CheckBox
+            android:id="@+id/checkBox4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="@string/yes_no" />
+
+        <TextView
+            android:id="@+id/tv_precaution5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/enterAnswer"
-            android:inputType="textPersonName"
-            android:textColor="#60000000"
-            android:textSize="16sp" />
+            android:padding="4dp"
+            android:text="@string/precaution_5"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-        <LinearLayout
+        <CheckBox
+            android:id="@+id/checkBox5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal">
+            android:padding="4dp"
+            android:text="@string/yes_no" />
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:onClick="gettingInputData"
-                android:text="@string/submit" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/clear" />
-        </LinearLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:onClick="gettingInputData"
+            android:text="@string/submit" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/clear" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_result_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:capitalize="words"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textSize="32sp" />
+
+
 </LinearLayout>
 

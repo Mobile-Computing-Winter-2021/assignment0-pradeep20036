@@ -1,13 +1,16 @@
 package com.example.helloworld;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 public class SecondActivity extends AppCompatActivity {
 
-    private int count_yes=0;
+    private int checkedCount=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,35 +26,61 @@ public class SecondActivity extends AppCompatActivity {
     protected void displayingIntentResults()
     {
         String name=getIntent().getStringExtra("name");
-        String ans1=getIntent().getStringExtra("ans1");
-        String ans2=getIntent().getStringExtra("ans2");
-        String ans3=getIntent().getStringExtra("ans3");
-        String ans4=getIntent().getStringExtra("ans4");
+
+        Boolean ans1=getIntent().getBooleanExtra("ans1",false);
+        Boolean ans2=getIntent().getBooleanExtra("ans2",false);
+        Boolean ans3=getIntent().getBooleanExtra("ans3",false);
+        Boolean ans4=getIntent().getBooleanExtra("ans4",false);
+        Boolean ans5=getIntent().getBooleanExtra("ans5",false);
+
+
+//        getting the number of checks to get the risk status
+        if(ans1)
+            checkedCount++;
+        if(ans2)
+            checkedCount++;
+        if(ans3)
+            checkedCount++;
+        if(ans4)
+            checkedCount++;
+        if(ans5)
+            checkedCount++;
 
 
 
 
 //        getting the elements of layout to display the results in them
         EditText et_name=findViewById(R.id.et_name);
-        EditText et_ans1=findViewById(R.id.et_ans_1);
-        EditText et_ans2=findViewById(R.id.et_ans_2);
-        EditText et_ans3=findViewById(R.id.et_ans_3);
-        EditText et_ans4=findViewById(R.id.et_ans_4);
+        CheckBox checkBox1=findViewById(R.id.checkBox1);
+        CheckBox checkBox2=findViewById(R.id.checkBox2);
+        CheckBox checkBox3=findViewById(R.id.checkBox3);
+        CheckBox checkBox4=findViewById(R.id.checkBox4);
+        CheckBox checkBox5=findViewById(R.id.checkBox5);
 
         et_name.setText(name);
-        et_ans1.setText(ans1);
-        et_ans2.setText(ans2);
-        et_ans3.setText(ans3);
-        et_ans4.setText(ans4);
+        checkBox1.setChecked(ans1);
+        checkBox2.setChecked(ans2);
+        checkBox3.setChecked(ans3);
+        checkBox4.setChecked(ans4);
+        checkBox5.setChecked(ans5);
 
     }
 
+    public void sendRiskStatus(View view) {
 
-    public void checkRiskStatus(View view) {
+//        color codes 1 for green safe
+//        color codes 2 for red for unsafe
+        Intent intent=new Intent();
+        if(checkedCount==5)
+        {
+            intent.putExtra("color",1);
+        }
+        else {
+            intent.putExtra("color",2);
+        }
 
-
-
-
+        setResult(2,intent);
+        finish();
 
     }
 }
