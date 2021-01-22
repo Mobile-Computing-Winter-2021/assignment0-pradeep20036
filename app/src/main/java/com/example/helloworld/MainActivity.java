@@ -39,10 +39,9 @@ public class MainActivity extends AppCompatActivity {
         checkBox3=findViewById(R.id.checkBox3);
         checkBox4=findViewById(R.id.checkBox4);
         checkBox5=findViewById(R.id.checkBox5);
-
+        tv_result=findViewById(R.id.tv_result_display);
         Log.i("INFO","State of activity MainActivity  changed from onCreate to onStart");
         Toast toast=Toast.makeText(this, "State of activity MainActivity  changed from onCreate to onStart", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER,0,0);
         toast.show();
 
     }
@@ -58,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         Log.i("INFO","State of activity MainActivity  changed from onStart to onResume");
         Toast toast=Toast.makeText(this, "State of activity MainActivity  changed from onStart to onResume", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER,0,0);
         toast.show();
 
     }
@@ -132,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 //        in first activity
         if(requestCode==2)
         {
-            tv_result=findViewById(R.id.tv_result_display);
+
             int value=data.getIntExtra("color",0);
             if(value==1)
             {

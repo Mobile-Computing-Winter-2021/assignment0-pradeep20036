@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="10dp"
     android:layout_marginTop="10dp"
+    android:background="#080277BD"
     android:backgroundTintMode="screen"
     android:foregroundTint="#C12828"
     android:gravity="center_horizontal"
@@ -34,7 +35,9 @@
         android:layout_marginRight="20dp"
         android:ems="10"
         android:hint="Enter your Name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,11 +52,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:fontFamily="@font/aclonica"
             android:padding="4dp"
             android:text="@string/precaution_1"
             android:textAlignment="viewStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <CheckBox
@@ -69,11 +73,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:fontFamily="@font/aclonica"
             android:padding="4dp"
             android:text="@string/precaution_2"
             android:textAlignment="viewStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <CheckBox
@@ -88,11 +93,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:fontFamily="@font/aclonica"
             android:padding="4dp"
             android:text="@string/precaution_3"
             android:textAlignment="viewStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <CheckBox
@@ -107,11 +113,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:fontFamily="@font/aclonica"
             android:padding="4dp"
             android:text="@string/precaution_4"
             android:textAlignment="viewStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <CheckBox
@@ -126,11 +133,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:fontFamily="@font/aclonica"
             android:padding="4dp"
             android:text="@string/precaution_5"
             android:textAlignment="viewStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <CheckBox
@@ -146,7 +154,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
         android:orientation="horizontal">
 
         <Button
@@ -155,6 +165,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
+            android:background="#00B8D4"
             android:onClick="gettingInputData"
             android:text="@string/submit" />
 
@@ -163,6 +174,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#00B8D4"
             android:onClick="clearData"
             android:text="@string/clear" />
     </LinearLayout>
@@ -174,6 +186,7 @@
         android:layout_margin="20dp"
         android:layout_marginBottom="10dp"
         android:gravity="center"
+        android:padding="10dp"
         android:textAllCaps="true"
         android:textSize="24sp"
         tools:visibility="visible" />
