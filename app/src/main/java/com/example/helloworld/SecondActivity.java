@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -16,12 +19,73 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        Log.i("INFO","State of activity SecondActivity is onCreate");
+        Toast.makeText(this, "State of activity SecondActivity is onCreate", Toast.LENGTH_SHORT).show();
+    
+        
 
 //        getting the values of the intent passed
            displayingIntentResults();
 
+        Log.i("INFO","State of activity SecondActivity  changed from onCreate to onStart");
+        Toast toast=Toast.makeText(this, "State of activity SecondActivity  changed from onCreate to onStart", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.show();
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("INFO","State of activity SecondActivity  changed from onStart to onResume");
+        Toast toast=Toast.makeText(this, "State of activity SecondActivity  changed from onStart to onResume", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.show();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("INFO","State of activity SecondActivity  changed from onResume to onPause");
+        Toast.makeText(this, "State of activity SecondActivity  changed from onResume to onPause", Toast.LENGTH_SHORT).show();
+
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("INFO","State of activity SecondActivity  changed from onPause to onStop");
+        Toast.makeText(this, "State of activity SecondActivity  changed from onPause to onStop", Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("INFO","State of activity SecondActivity  changed from onStop to onDestroy");
+        Toast.makeText(this, "State of activity SecondActivity  changed from onStop to onDestroy", Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i("INFO","State of activity SecondActivity  changed from onStop to onRestart");
+        Log.i("INFO","State of activity SecondActivity  changed from onRestart to onStart");
+        Toast.makeText(this, "State of activity SecondActivity  changed from onStop to onRestart", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "State of activity SecondActivity  changed from onRestart to onStart", Toast.LENGTH_SHORT).show();
+
+
+    }
+
 
     protected void displayingIntentResults()
     {

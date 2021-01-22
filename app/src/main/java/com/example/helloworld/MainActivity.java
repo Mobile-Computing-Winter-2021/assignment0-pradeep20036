@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i
+
+        Log.i("INFO","State of activity MainActivity is onCreate");
+        Toast.makeText(this, "State of activity MainActivity is onCreate", Toast.LENGTH_SHORT).show();
+
 
         setContentView(R.layout.activity_main);
         et_name=findViewById(R.id.et_name);
@@ -34,16 +40,72 @@ public class MainActivity extends AppCompatActivity {
         checkBox4=findViewById(R.id.checkBox4);
         checkBox5=findViewById(R.id.checkBox5);
 
+        Log.i("INFO","State of activity MainActivity  changed from onCreate to onStart");
+        Toast toast=Toast.makeText(this, "State of activity MainActivity  changed from onCreate to onStart", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.show();
+
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("INFO","State of activity MainActivity  changed from onStart to onResume");
+        Toast toast=Toast.makeText(this, "State of activity MainActivity  changed from onStart to onResume", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.show();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("INFO","State of activity MainActivity  changed from onResume to onPause");
+        Toast.makeText(this, "State of activity MainActivity  changed from onResume to onPause", Toast.LENGTH_SHORT).show();
+
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("INFO","State of activity MainActivity  changed from onPause to onStop");
+        Toast.makeText(this, "State of activity MainActivity  changed from onPause to onStop", Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("INFO","State of activity MainActivity  changed from onStop to onDestroy");
+        Toast.makeText(this, "State of activity MainActivity  changed from onStop to onDestroy", Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i("INFO","State of activity MainActivity  changed from onStop to onRestart");
+        Log.i("INFO","State of activity MainActivity  changed from onRestart to onStart");
+        Toast.makeText(this, "State of activity MainActivity  changed from onStop to onRestart", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "State of activity MainActivity  changed from onRestart to onStart", Toast.LENGTH_SHORT).show();
+
+
+    }
+
+
+
 
     public void gettingInputData(View view) {
 //    getting the input data and sending it to the send activity for display
-
-
         String name=et_name.getText().toString();
-
 //        getting the states of checkboxes and passing it to the next Activity
-
         boolean checkbox1_state=checkBox1.isChecked();
         boolean checkbox2_state=checkBox2.isChecked();
         boolean checkbox3_state=checkBox3.isChecked();
