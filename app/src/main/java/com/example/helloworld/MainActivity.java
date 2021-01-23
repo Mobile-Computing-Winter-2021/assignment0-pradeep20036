@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
             if(value==1)
             {
                text="YOU ARE SAFE";
-                color="#008000";
+                color="#34eb40";
             }
             else
             {

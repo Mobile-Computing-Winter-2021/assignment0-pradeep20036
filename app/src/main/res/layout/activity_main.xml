@@ -225,6 +225,7 @@
         android:padding="10dp"
         android:textAllCaps="true"
         android:textSize="24sp"
+        android:textColor="#FFFF"
         tools:visibility="visible" />
 
 
