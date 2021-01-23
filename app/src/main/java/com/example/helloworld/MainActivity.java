@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
         checkBox4.setChecked(false);
         checkBox5.setChecked(false);
         tv_result.setText("");
-        tv_result.setBackgroundColor(Color.WHITE);
+        tv_result.setBackgroundColor(Color.parseColor("#080277BD"));
 
     }
 }

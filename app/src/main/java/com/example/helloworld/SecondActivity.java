@@ -29,7 +29,6 @@ public class SecondActivity extends AppCompatActivity {
 
         Log.i("INFO","State of activity SecondActivity  changed from onCreate to onStart");
         Toast toast=Toast.makeText(this, "State of activity SecondActivity  changed from onCreate to onStart", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER,0,0);
         toast.show();
 
     }
@@ -45,7 +44,6 @@ public class SecondActivity extends AppCompatActivity {
         super.onResume();
         Log.i("INFO","State of activity SecondActivity  changed from onStart to onResume");
         Toast toast=Toast.makeText(this, "State of activity SecondActivity  changed from onStart to onResume", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER,0,0);
         toast.show();
 
     }
