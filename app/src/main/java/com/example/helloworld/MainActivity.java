@@ -1,11 +1,13 @@
 package com.example.helloworld;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -16,7 +18,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-
     EditText et_name;
     CheckBox checkBox1;
     CheckBox checkBox2;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox checkBox4;
     CheckBox checkBox5;
     TextView tv_result;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_main);
+
         et_name=findViewById(R.id.et_name);
         checkBox1=findViewById(R.id.checkBox1);
         checkBox2=findViewById(R.id.checkBox2);
@@ -40,6 +43,18 @@ public class MainActivity extends AppCompatActivity {
         checkBox4=findViewById(R.id.checkBox4);
         checkBox5=findViewById(R.id.checkBox5);
         tv_result=findViewById(R.id.tv_result_display);
+
+        if(savedInstanceState!=null){
+                if(!TextUtils.isEmpty(savedInstanceState.getString(("message")))){
+                mText=savedInstanceState.getString("message");
+                mColor=savedInstanceState.getString("color");
+                tv_result.setText(mText);
+                tv_result.setBackgroundColor(Color.parseColor(mColor));
+            }
+        }
+
+
+
         Log.i("INFO","State of activity MainActivity  changed from onCreate to onStart");
         Toast toast=Toast.makeText(this, "State of activity MainActivity  changed from onCreate to onStart", Toast.LENGTH_SHORT);
         toast.show();
@@ -98,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    private String mText,mColor;
 
 
     public void gettingInputData(View view) {
@@ -131,21 +147,37 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode==2)
         {
 
+            String text;
+            String color;
             int value=data.getIntExtra("color",0);
             if(value==1)
             {
-                tv_result.setText("YOU ARE SAFE");
-                tv_result.setBackgroundColor(Color.GREEN);
+               text="YOU ARE SAFE";
+                color="#008000";
             }
             else
             {
-                tv_result.setText("YOU ARE UNSAFE");
-                tv_result.setBackgroundColor(Color.RED);
+
+                text="YOU ARE UNSAFE";
+                color="#FF0000";
             }
+
+            mText=text;
+            mColor=color;
+            tv_result.setText(mText);
+            tv_result.setBackgroundColor(Color.parseColor(mColor));
 
         }
 
     }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("message",mText);
+        outState.putString("color",mColor);
+    }
+
 
     public void clearData(View view) {
         et_name.setText("");
