@@ -30,12 +30,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.i("INFO","State of activity MainActivity is onCreate");
-        Toast.makeText(this, "State of activity MainActivity is onCreate", Toast.LENGTH_SHORT).show();
-
-
         setContentView(R.layout.activity_main);
 
+        Log.i("INFO","State of activity MainActivity is onCreate");
+        Toast toast1=Toast.makeText(this, "State of activity MainActivity is onCreate", Toast.LENGTH_SHORT);
+        toast1.setGravity(Gravity.CENTER,0,0);
+        toast1.show();
+
+//        getting ID's of different views
         et_name=findViewById(R.id.et_name);
         checkBox1=findViewById(R.id.checkBox1);
         checkBox2=findViewById(R.id.checkBox2);
@@ -54,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
         Log.i("INFO","State of activity MainActivity  changed from onCreate to onStart");
         Toast toast=Toast.makeText(this, "State of activity MainActivity  changed from onCreate to onStart", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
         toast.show();
 
     }
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         Log.i("INFO","State of activity MainActivity  changed from onStart to onResume");
         Toast toast=Toast.makeText(this, "State of activity MainActivity  changed from onStart to onResume", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
         toast.show();
 
     }
@@ -80,7 +83,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         Log.i("INFO","State of activity MainActivity  changed from onResume to onPause");
-        Toast.makeText(this, "State of activity MainActivity  changed from onResume to onPause", Toast.LENGTH_SHORT).show();
+        Toast toast=Toast.makeText(this, "State of activity MainActivity  changed from onResume to onPause", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.show();
 
 
     }
@@ -89,16 +94,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.i("INFO","State of activity MainActivity  changed from onPause to onStop");
-        Toast.makeText(this, "State of activity MainActivity  changed from onPause to onStop", Toast.LENGTH_SHORT).show();
-
+        Toast toast=Toast.makeText(this, "State of activity MainActivity  changed from onPause to onStop", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.show();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         Log.i("INFO","State of activity MainActivity  changed from onStop to onDestroy");
-        Toast.makeText(this, "State of activity MainActivity  changed from onStop to onDestroy", Toast.LENGTH_SHORT).show();
-
+        Toast toast=Toast.makeText(this, "State of activity MainActivity  changed from onStop to onDestroy", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.show();
     }
 
     @Override
@@ -107,8 +114,9 @@ public class MainActivity extends AppCompatActivity {
         Log.i("INFO","State of activity MainActivity  changed from onStop to onRestart");
         Log.i("INFO","State of activity MainActivity  changed from onRestart to onStart");
         Toast.makeText(this, "State of activity MainActivity  changed from onStop to onRestart", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "State of activity MainActivity  changed from onRestart to onStart", Toast.LENGTH_SHORT).show();
-
+        Toast toast=Toast.makeText(this, "State of activity MainActivity  changed from onRestart to onStart", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.show();
 
     }
 
@@ -117,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void gettingInputData(View view) {
+//        when the submit button is pressed this function is called.
 //    getting the input data and sending it to the send activity for display
         String name=et_name.getText().toString();
 //        getting the states of checkboxes and passing it to the next Activity
@@ -125,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
         boolean checkbox3_state=checkBox3.isChecked();
         boolean checkbox4_state=checkBox4.isChecked();
         boolean checkbox5_state=checkBox5.isChecked();
-
 
         Intent intent =new Intent(getApplicationContext(),SecondActivity.class);
 //        putting data into the intent to pass to the second activity
@@ -142,11 +150,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-//        when the second activity will result the result we need to catch the result and perform certain operations
+//        when the second activity will return the results we need to catch the result and perform certain operations
 //        in first activity
         if(requestCode==2)
         {
-
             String text;
             String color;
             int value=data.getIntExtra("color",0);

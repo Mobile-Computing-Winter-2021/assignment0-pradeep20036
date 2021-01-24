@@ -20,8 +20,9 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         Log.i("INFO","State of activity SecondActivity is onCreate");
-        Toast.makeText(this, "State of activity SecondActivity is onCreate", Toast.LENGTH_SHORT).show();
-    
+        Toast toast1=Toast.makeText(this, "State of activity SecondActivity is onCreate", Toast.LENGTH_SHORT);
+        toast1.setGravity(Gravity.CENTER,0,0);
+        toast1.show();
         
 
 //        getting the values of the intent passed
@@ -29,6 +30,7 @@ public class SecondActivity extends AppCompatActivity {
 
         Log.i("INFO","State of activity SecondActivity  changed from onCreate to onStart");
         Toast toast=Toast.makeText(this, "State of activity SecondActivity  changed from onCreate to onStart", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
         toast.show();
 
     }
@@ -44,6 +46,7 @@ public class SecondActivity extends AppCompatActivity {
         super.onResume();
         Log.i("INFO","State of activity SecondActivity  changed from onStart to onResume");
         Toast toast=Toast.makeText(this, "State of activity SecondActivity  changed from onStart to onResume", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
         toast.show();
 
     }
@@ -52,8 +55,9 @@ public class SecondActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         Log.i("INFO","State of activity SecondActivity  changed from onResume to onPause");
-        Toast.makeText(this, "State of activity SecondActivity  changed from onResume to onPause", Toast.LENGTH_SHORT).show();
-
+        Toast toast=Toast.makeText(this, "State of activity SecondActivity  changed from onResume to onPause", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.show();
 
     }
 
@@ -61,7 +65,9 @@ public class SecondActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.i("INFO","State of activity SecondActivity  changed from onPause to onStop");
-        Toast.makeText(this, "State of activity SecondActivity  changed from onPause to onStop", Toast.LENGTH_SHORT).show();
+        Toast toast=Toast.makeText(this, "State of activity SecondActivity  changed from onPause to onStop", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.show();
 
     }
 
@@ -69,8 +75,9 @@ public class SecondActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.i("INFO","State of activity SecondActivity  changed from onStop to onDestroy");
-        Toast.makeText(this, "State of activity SecondActivity  changed from onStop to onDestroy", Toast.LENGTH_SHORT).show();
-
+        Toast toast=Toast.makeText(this, "State of activity SecondActivity  changed from onStop to onDestroy", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.show();
     }
 
     @Override
@@ -78,9 +85,12 @@ public class SecondActivity extends AppCompatActivity {
         super.onRestart();
         Log.i("INFO","State of activity SecondActivity  changed from onStop to onRestart");
         Log.i("INFO","State of activity SecondActivity  changed from onRestart to onStart");
-        Toast.makeText(this, "State of activity SecondActivity  changed from onStop to onRestart", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "State of activity SecondActivity  changed from onRestart to onStart", Toast.LENGTH_SHORT).show();
-
+        Toast toast1=Toast.makeText(this, "State of activity SecondActivity  changed from onStop to onRestart", Toast.LENGTH_SHORT);
+        Toast toast2=Toast.makeText(this, "State of activity SecondActivity  changed from onRestart to onStart", Toast.LENGTH_SHORT);
+        toast1.setGravity(Gravity.CENTER,0,0);
+        toast1.show();
+        toast2.setGravity(Gravity.CENTER,0,0);
+        toast2.show();
 
     }
 
