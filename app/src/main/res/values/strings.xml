@@ -16,6 +16,7 @@
 
     <string name="checkRiskStatus">Check Risk Status</string>
     <string name="enterYourName">Enter your Name</string>
+    <string name="instructions">Please Select Precautions You are Taking</string>
 
 
 </resources>
