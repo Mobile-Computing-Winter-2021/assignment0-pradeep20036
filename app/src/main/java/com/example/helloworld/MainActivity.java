@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 //        when the second activity will return the results we need to catch the result and perform certain operations
 //        in first activity
-        if(requestCode==2)
+        if(requestCode==2 && data!=null)
         {
             String text;
             String color;

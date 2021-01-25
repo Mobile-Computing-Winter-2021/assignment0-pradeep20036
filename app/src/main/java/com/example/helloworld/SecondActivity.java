@@ -11,6 +11,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.time.Duration;
+
 public class SecondActivity extends AppCompatActivity {
 
     private int checkedCount=0;
@@ -161,7 +163,7 @@ public class SecondActivity extends AppCompatActivity {
         }
 
         setResult(2,intent);
-        finish();
 
+        Toast.makeText(this,"Risk Status is Updated",Toast.LENGTH_SHORT).show();
     }
 }
