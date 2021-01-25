@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
     CheckBox checkBox4;
     CheckBox checkBox5;
     TextView tv_result;
-
+//    variable to ensure rotation robustness
+    Boolean clearData=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,9 +51,11 @@ public class MainActivity extends AppCompatActivity {
                 if(!TextUtils.isEmpty(savedInstanceState.getString(("message")))){
                 mText=savedInstanceState.getString("message");
                 mColor=savedInstanceState.getString("color");
-                tv_result.setText(mText);
-                tv_result.setBackgroundColor(Color.parseColor(mColor));
-            }
+                if(!savedInstanceState.getBoolean("clearData")) {
+                    tv_result.setText(mText);
+                    tv_result.setBackgroundColor(Color.parseColor(mColor));
+                }
+                }
         }
 
 
@@ -128,12 +131,14 @@ public class MainActivity extends AppCompatActivity {
 //        when the submit button is pressed this function is called.
 //    getting the input data and sending it to the send activity for display
         String name=et_name.getText().toString();
+        clearData=false;
 //        getting the states of checkboxes and passing it to the next Activity
         boolean checkbox1_state=checkBox1.isChecked();
         boolean checkbox2_state=checkBox2.isChecked();
         boolean checkbox3_state=checkBox3.isChecked();
         boolean checkbox4_state=checkBox4.isChecked();
         boolean checkbox5_state=checkBox5.isChecked();
+
 
         Intent intent =new Intent(getApplicationContext(),SecondActivity.class);
 //        putting data into the intent to pass to the second activity
@@ -183,10 +188,14 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putString("message",mText);
         outState.putString("color",mColor);
+        outState.putBoolean("clearData",clearData);
     }
 
 
     public void clearData(View view) {
+
+        clearData=true;
+
         et_name.setText("");
         checkBox1.setChecked(false);
         checkBox2.setChecked(false);
