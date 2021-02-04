@@ -43,7 +43,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btn_start"
                 android:layout_width="105dp"
                 android:layout_height="63dp"
                 android:layout_margin="15dp"
@@ -54,7 +54,7 @@
                 app:backgroundTint="#6C3CFF" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btn_stop"
                 android:layout_width="113dp"
                 android:layout_height="59dp"
                 android:layout_margin="15dp"
@@ -65,7 +65,7 @@
                 app:backgroundTint="#6C3CFF" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/btn_nextActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
@@ -76,7 +76,7 @@
                 app:backgroundTint="#6C3CFF" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btn_setMusic"
                 android:layout_width="124dp"
                 android:layout_height="62dp"
                 android:layout_margin="15dp"
