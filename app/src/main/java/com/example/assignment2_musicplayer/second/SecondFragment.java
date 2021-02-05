@@ -1,4 +1,4 @@
-package com.example.assignment2_musicplayer;
+package com.example.assignment2_musicplayer.second;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.assignment2_musicplayer.R;
 
 public class SecondFragment extends Fragment {
 

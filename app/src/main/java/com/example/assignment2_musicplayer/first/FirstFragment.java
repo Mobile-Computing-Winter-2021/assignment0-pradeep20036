@@ -1,7 +1,6 @@
-package com.example.assignment2_musicplayer;
+package com.example.assignment2_musicplayer.first;
 
 import android.app.ActivityManager;
-import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,11 +13,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.assignment2_musicplayer.MusicService;
+import com.example.assignment2_musicplayer.R;
+import com.example.assignment2_musicplayer.second.SecondActivity;
+
 
 public class FirstFragment extends Fragment {
 
     Button btn_start;
     Button btn_stop;
+    Button btn_nextActivity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,6 +31,7 @@ public class FirstFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_first, container, false);
         btn_start=view.findViewById(R.id.btn_start);
         btn_stop=view.findViewById(R.id.btn_stop);
+        btn_nextActivity=view.findViewById(R.id.btn_nextActivity);
 
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +48,17 @@ public class FirstFragment extends Fragment {
                 getActivity().stopService(new Intent(getActivity(), MusicService.class));
             }
         });
+
+        btn_nextActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), SecondActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
 
         return view;
     }

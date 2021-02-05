@@ -1,9 +1,11 @@
-package com.example.assignment2_musicplayer;
+package com.example.assignment2_musicplayer.second;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+
+import com.example.assignment2_musicplayer.R;
 
 public class SecondActivity extends AppCompatActivity {
 

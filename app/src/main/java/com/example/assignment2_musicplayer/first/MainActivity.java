@@ -1,12 +1,12 @@
-package com.example.assignment2_musicplayer;
+package com.example.assignment2_musicplayer.first;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
+import com.example.assignment2_musicplayer.R;
 
 public class MainActivity extends AppCompatActivity {
     Button btn_start;
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 //        loading the fragment in the activity on start
         FirstFragment firstFragment=new FirstFragment();
         FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.linearLayout,firstFragment);
+        transaction.add(R.id.linearLayout,firstFragment);
         transaction.commit();
 
 

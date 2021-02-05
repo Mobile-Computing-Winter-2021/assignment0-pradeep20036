@@ -6,10 +6,7 @@ import android.media.MediaPlayer;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
-
-//Reference Doc : https://www.tutorialspoint.com/what-is-android-background-music-service
 
 public class MusicService extends Service {
 
@@ -37,10 +34,6 @@ public class MusicService extends Service {
         musicPlayer.start();
         return START_STICKY;
     }
-    public void onPause(){
-        musicPlayer.pause();
-    }
-
 
 
     @Override
