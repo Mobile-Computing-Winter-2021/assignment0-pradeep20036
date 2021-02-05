@@ -37,10 +37,11 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="336dp"
+            android:layout_height="89dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:padding="0dp">
 
             <Button
                 android:id="@+id/btn_start"
@@ -49,6 +50,17 @@
                 android:layout_margin="15dp"
                 android:background="@drawable/round_corner"
                 android:text="Start"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:backgroundTint="#6C3CFF" />
+
+            <Button
+                android:id="@+id/btn_pause"
+                android:layout_width="124dp"
+                android:layout_height="62dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/round_corner"
+                android:text="pause"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:backgroundTint="#6C3CFF" />
@@ -64,12 +76,21 @@
                 android:textStyle="bold"
                 app:backgroundTint="#6C3CFF" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="204dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
             <Button
                 android:id="@+id/btn_nextActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:background="@drawable/round_corner"
+                android:gravity="center"
                 android:text="Next Activity"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -77,14 +98,16 @@
 
             <Button
                 android:id="@+id/btn_setMusic"
-                android:layout_width="124dp"
-                android:layout_height="62dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:background="@drawable/round_corner"
-                android:text="set music"
+                android:gravity="center"
+                android:text="setMusic"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:backgroundTint="#6C3CFF" />
+
         </LinearLayout>
 
     </LinearLayout>

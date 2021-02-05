@@ -31,7 +31,19 @@ public class MusicService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Toast.makeText(this, "Music Player Service Started", Toast.LENGTH_SHORT).show();
-        musicPlayer.start();
+
+        if(intent!=null)
+        {
+            Boolean pause=intent.getBooleanExtra("pause",false);
+
+            if(pause)
+            {
+                musicPlayer.pause();
+            }
+            else{
+                musicPlayer.start();
+            }
+        }
         return START_STICKY;
     }
 

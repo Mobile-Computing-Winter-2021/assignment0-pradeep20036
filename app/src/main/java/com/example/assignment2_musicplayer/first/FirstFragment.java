@@ -23,6 +23,7 @@ public class FirstFragment extends Fragment {
     Button btn_start;
     Button btn_stop;
     Button btn_nextActivity;
+    Button btn_pause;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,7 +33,7 @@ public class FirstFragment extends Fragment {
         btn_start=view.findViewById(R.id.btn_start);
         btn_stop=view.findViewById(R.id.btn_stop);
         btn_nextActivity=view.findViewById(R.id.btn_nextActivity);
-
+        btn_pause=view.findViewById(R.id.btn_pause);
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,25 +58,22 @@ public class FirstFragment extends Fragment {
             }
         });
 
+        btn_pause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), MusicService.class);
+                intent.putExtra("pause",true);
+                getActivity().startService(intent);
+            }
+        });
 
 
 
         return view;
     }
 
-    private boolean checkServiceRunning(Class<?> serviceClass) {
-//        Getting the activity Manager
-        ActivityManager manager = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
 
-//        getting all the services running in the system and checking if our service is running or not.
-        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE))
-        {
-            if (serviceClass.getName().equals(service.service.getClassName())) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 
 
 
