@@ -1,7 +1,5 @@
 package com.example.assignment2_musicplayer.first;
 
-import android.app.ActivityManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -11,7 +9,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.assignment2_musicplayer.MusicService;
 import com.example.assignment2_musicplayer.R;
@@ -24,16 +26,42 @@ public class FirstFragment extends Fragment {
     Button btn_stop;
     Button btn_nextActivity;
     Button btn_pause;
-
+    ListView listView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_first, container, false);
-        btn_start=view.findViewById(R.id.btn_start);
-        btn_stop=view.findViewById(R.id.btn_stop);
+
+//      ListView Handling
+        listView=view.findViewById(R.id.lv_musiclist);
+        String[] music = {"alexander","hawayein","mirzapur","warriyo"};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, music);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(), "clicked" + music[position], Toast.LENGTH_SHORT).show();
+
+//                On click on the item, playing that music.
+                Intent intent=new Intent(getContext(), MusicService.class);
+                intent.putExtra("song",music[position]);
+                getActivity().startService(intent);
+
+            }
+        });
+
+
+
+
+
+        btn_start=view.findViewById(R.id.btn_checkConnection);
+        btn_stop=view.findViewById(R.id.btn_downloadMusic);
         btn_nextActivity=view.findViewById(R.id.btn_nextActivity);
-        btn_pause=view.findViewById(R.id.btn_pause);
+
+
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,17 +85,6 @@ public class FirstFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-        btn_pause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getContext(), MusicService.class);
-                intent.putExtra("pause",true);
-                getActivity().startService(intent);
-            }
-        });
-
-
 
         return view;
     }

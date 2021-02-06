@@ -34,13 +34,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="336dp"
+            android:layout_height="452dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btn_start"
+                android:id="@+id/btn_checkConnection"
                 android:layout_width="wrap_content"
                 android:layout_height="63dp"
                 android:layout_margin="15dp"
@@ -51,7 +51,7 @@
                 app:backgroundTint="#6C3CFF" />
 
             <Button
-                android:id="@+id/btn_stop"
+                android:id="@+id/btn_downloadMusic"
                 android:layout_width="wrap_content"
                 android:layout_height="59dp"
                 android:layout_margin="15dp"
