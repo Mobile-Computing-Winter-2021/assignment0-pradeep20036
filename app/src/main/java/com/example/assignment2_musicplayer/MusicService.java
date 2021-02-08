@@ -55,8 +55,18 @@ public class MusicService extends Service {
             case "mirzapur":
                 myUri =R.raw.mirzapur;
                 break;
+            case "arkansas":
+                myUri =R.raw.arkansas;
+                break;
+            case "inspire":
+                myUri =R.raw.inspire;
+                break;
+            case "sauda":
+                myUri =R.raw.sauda;
+                break;
             case "warriyo":
                 myUri =R.raw.warriyo;
+                break;
         }
 
         musicPlayer=MediaPlayer.create(this,myUri);

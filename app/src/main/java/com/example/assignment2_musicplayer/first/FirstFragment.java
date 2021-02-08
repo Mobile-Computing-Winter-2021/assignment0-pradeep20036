@@ -35,10 +35,12 @@ public class FirstFragment extends Fragment {
 
 //      ListView Handling
         listView=view.findViewById(R.id.lv_musiclist);
-        String[] music = {"alexander","hawayein","mirzapur","warriyo"};
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, music);
+        String[] music = new String[] { "alexander", "arkansas", "hawayein",
+                "inspire" ,"mirzapur", "sauda", "warriyo"};
+        MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(getContext(), music);
         listView.setAdapter(adapter);
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -88,6 +90,8 @@ public class FirstFragment extends Fragment {
 
         return view;
     }
+
+
 
 
 
