@@ -19,7 +19,6 @@ import com.example.assignment2_musicplayer.MusicService;
 import com.example.assignment2_musicplayer.R;
 import com.example.assignment2_musicplayer.second.SecondActivity;
 
-
 public class FirstFragment extends Fragment {
 
     Button btn_start;
@@ -41,7 +40,6 @@ public class FirstFragment extends Fragment {
         MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(getContext(), music);
         listView.setAdapter(adapter);
 
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -54,8 +52,6 @@ public class FirstFragment extends Fragment {
 
             }
         });
-
-
 
 
 
