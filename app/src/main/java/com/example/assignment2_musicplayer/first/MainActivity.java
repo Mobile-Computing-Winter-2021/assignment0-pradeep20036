@@ -3,42 +3,38 @@ package com.example.assignment2_musicplayer.first;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.DownloadManager;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.widget.Button;
 
 import com.example.assignment2_musicplayer.R;
-import com.example.assignment2_musicplayer.broadCastReceivers.BatteryLow_Receiver;
-import com.example.assignment2_musicplayer.broadCastReceivers.BatteryOK_Receiver;
-import com.example.assignment2_musicplayer.broadCastReceivers.PowerDisconnected_Receiver;
+import com.example.assignment2_musicplayer.broadCastReceivers.BroadCastReceivers;
 
 public class MainActivity extends AppCompatActivity {
     Button btn_start;
     Button btn_stop;
 
-//    declaring variables of broadcast receivers
-    BatteryLow_Receiver batteryLow_receiver;
-    BatteryOK_Receiver batteryOK_receiver;
-    PowerDisconnected_Receiver powerDisconnected_receiver;
+    BroadCastReceivers broadcastReceivers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        register all the broadcast receivers
+        broadcastReceivers=new BroadCastReceivers();
 
-        batteryLow_receiver=new BatteryLow_Receiver();
-        batteryOK_receiver=new BatteryOK_Receiver();
-        powerDisconnected_receiver=new PowerDisconnected_Receiver();
+        IntentFilter intentFilter=new IntentFilter();
 
-        registerReceiver(batteryLow_receiver,new IntentFilter(Intent.ACTION_BATTERY_LOW));
-        registerReceiver(batteryOK_receiver,new IntentFilter(Intent.ACTION_BATTERY_OKAY));
-        registerReceiver(powerDisconnected_receiver,new IntentFilter(Intent.ACTION_POWER_DISCONNECTED));
+//        adding actions to intent filer
+        intentFilter.addAction(Intent.ACTION_BATTERY_LOW);
+        intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+        intentFilter.addAction(Intent.ACTION_BATTERY_OKAY);
+
+
+//        registering broadcast receivers
+        registerReceiver(broadcastReceivers,intentFilter);
+
 
 
 //        loading the fragment in the activity on start
