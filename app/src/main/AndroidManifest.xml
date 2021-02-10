@@ -16,9 +16,11 @@
         android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
         <activity android:name=".second.SecondActivity"></activity>
         <activity android:name=".first.MainActivity">
+        </activity>
+
+        <activity android:name=".first.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
