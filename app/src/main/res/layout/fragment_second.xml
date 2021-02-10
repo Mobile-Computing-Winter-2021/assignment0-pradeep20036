@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="20dp"
     tools:context=".second.SecondFragment">
 
     <LinearLayout
@@ -12,25 +13,18 @@
         android:layout_gravity="center"
 
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/tv_Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/secondaryColor"
             android:fontFamily="@font/aclonica"
             android:gravity="center"
             android:padding="20dp"
-            android:text="MUSIC PLAYER APP"
+            android:text="MUSIC PLAYER"
             android:textSize="32sp"
             android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="180dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:src="@drawable/music" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,7 +42,7 @@
                 android:text="Check Connection"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:backgroundTint="#6C3CFF" />
+                app:backgroundTint="#F62E74" />
 
             <Button
                 android:id="@+id/btn_downloadMusic"
@@ -59,7 +53,7 @@
                 android:text="Download Music"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:backgroundTint="#6C3CFF" />
+                app:backgroundTint="#F62E74" />
 
 
         </LinearLayout>

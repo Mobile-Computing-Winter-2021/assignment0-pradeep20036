@@ -1,10 +1,13 @@
 package com.example.assignment2_musicplayer.first;
 
+import android.app.DownloadManager;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +21,8 @@ import android.widget.Toast;
 import com.example.assignment2_musicplayer.MusicService;
 import com.example.assignment2_musicplayer.R;
 import com.example.assignment2_musicplayer.second.SecondActivity;
+
+import static android.content.Context.DOWNLOAD_SERVICE;
 
 public class FirstFragment extends Fragment {
 
@@ -79,8 +84,8 @@ public class FirstFragment extends Fragment {
         btn_nextActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getContext(), SecondActivity.class);
-                startActivity(intent);
+                    Intent intent=new Intent(getContext(), SecondActivity.class);
+                    startActivity(intent);
             }
         });
 
