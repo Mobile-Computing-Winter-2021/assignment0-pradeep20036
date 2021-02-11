@@ -3,6 +3,7 @@ package com.example.assignment2_musicplayer.first;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.DownloadManager;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.Button;
 
 import com.example.assignment2_musicplayer.R;
 import com.example.assignment2_musicplayer.broadCastReceivers.BroadCastReceivers;
+import com.example.assignment2_musicplayer.broadCastReceivers.DownloadReceiver;
 
 public class MainActivity extends AppCompatActivity {
     Button btn_start;
@@ -34,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
 
 //        registering broadcast receivers
         registerReceiver(broadcastReceivers,intentFilter);
+
+
+//broadcast  receiver for DownloadManager
+        DownloadReceiver downloadReceiver=new DownloadReceiver();
+        IntentFilter filter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
+        registerReceiver(downloadReceiver, filter);
 
 
 

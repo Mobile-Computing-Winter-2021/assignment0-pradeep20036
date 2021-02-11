@@ -61,8 +61,15 @@ public class SecondFragment extends Fragment {
                 Uri uri = Uri.parse("http://faculty.iiitd.ac.in/~mukulika/s1.mp3");
                 DownloadManager downloadManager = (DownloadManager) getActivity().getSystemService(DOWNLOAD_SERVICE);
                 DownloadManager.Request request = new DownloadManager.Request(uri);
+
                 request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,"Music_file"+".mp3");
+
+//                this function will store the file in public directory
+//                 request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,"Music_file"+"");
+
+//                This function will store the file in app local directory
+                request.setDestinationInExternalFilesDir(getContext(),Environment.DIRECTORY_DOWNLOADS,"Music_file");
+//
 
                 Toast.makeText(getContext()," Connected to the webserver",Toast.LENGTH_SHORT).show();
                 downloadManager.enqueue(request);
@@ -70,9 +77,7 @@ public class SecondFragment extends Fragment {
 
             }
         });
-        
-        
-        
+
         return view;
     }
 }
