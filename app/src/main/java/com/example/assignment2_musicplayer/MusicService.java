@@ -105,7 +105,6 @@ public class MusicService extends Service {
 
     private void NotificationChannel() {
 //        function
-
 //        boilder plate code for notification Source: Developers Android Documentation
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O)
         {

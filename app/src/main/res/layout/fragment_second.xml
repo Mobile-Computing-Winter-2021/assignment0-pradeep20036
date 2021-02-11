@@ -55,6 +55,14 @@
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
+            <Button
+                android:id="@+id/bt_playDownload"
+                android:layout_width="179dp"
+                android:layout_height="63dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/round_corner"
+                android:text="Play Download" />
+
 
         </LinearLayout>
 
