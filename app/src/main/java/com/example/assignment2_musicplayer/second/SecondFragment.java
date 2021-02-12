@@ -36,8 +36,12 @@ public class SecondFragment extends Fragment {
     String url ="http://faculty.iiitd.ac.in/~mukulika/s1.mp3";
 
     Button btn_connectionCheck;
+
     Button btn_downloadMusic;
+
     private int type=1; //1 for internal // 2 for external
+
+
     Button btn_playDownloaded;
 
 
