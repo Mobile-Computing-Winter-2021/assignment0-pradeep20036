@@ -102,10 +102,18 @@ public class MusicService extends Service {
                     }
                     try {
                         musicPlayer.prepare();
-                    } catch (IOException e) {
+                    } catch (Exception e) {
+                        Toast.makeText(this,"No file present",Toast.LENGTH_SHORT).show();
+
                         e.printStackTrace();
                     }
-                    musicPlayer.start();
+                    try {
+                        musicPlayer.start();
+                    } catch (Exception e)
+                    {
+                     Toast.makeText(this,"No file present",Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
 
                     return START_STICKY;
 
