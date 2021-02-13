@@ -2,6 +2,7 @@ package com.example.assignment2_musicplayer.second;
 
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -19,11 +20,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.assignment2_musicplayer.MusicService;
 import com.example.assignment2_musicplayer.R;
 
 import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
@@ -43,13 +47,15 @@ public class SecondFragment extends Fragment {
 
 
     Button btn_playDownloaded;
+    Button btn_stopDownloaded;
 
 
-    DownloadManager.Request t_checker;
+
+
     public SecondFragment() {
         // Required empty public constructor
     }
-
+    DownloadManager.Request t_checker;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,6 +70,7 @@ public class SecondFragment extends Fragment {
 
         btn_playDownloaded=view.findViewById(R.id.bt_playDownload);
 //        btn_playDownloaded.setVisibility(View.INVISIBLE);
+        btn_stopDownloaded=view.findViewById(R.id.btn_stopDownload);
 
         btn_downloadMusic.setOnClickListener(new View.OnClickListener() {
 
@@ -94,10 +101,24 @@ public class SecondFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
+                String location="/storage/emulated/0/Android/data/com.example.assignment2_musicplayer/files/Download/pradeep.mp3";
 
+                Intent intent=new Intent(getContext(), MusicService.class);
+                intent.putExtra("song","downloaded");
+                getActivity().startService(intent);
 
             }
         });
+
+        btn_stopDownloaded.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("State","stopService");
+                getActivity().stopService(new Intent(getActivity(), MusicService.class));
+            }
+        });
+
+
 
         return view;
     }
@@ -116,15 +137,13 @@ public class SecondFragment extends Fragment {
                 URL url = new URL(params[0]);
                 URLConnection conection = url.openConnection();
                 conection.connect();
-                InputStream input = new BufferedInputStream(url.openStream(),20000);
+                InputStream input = new BufferedInputStream(url.openStream(),200000);
                 OutputStream output = new FileOutputStream(getContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)+"MusicFile.mp3");
 
                 if(type==1)
-                    t_checker.setDestinationInExternalFilesDir(getContext(),Environment.DIRECTORY_DOWNLOADS,"Music_file");
+                    t_checker.setDestinationInExternalFilesDir(getContext(),Environment.DIRECTORY_DOWNLOADS,"pradeep.mp3");
                 if(type==2)
-                    t_checker.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,"Music_file");
-
-
+                    t_checker.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,"pradeep.mp3");
 
                 byte data[] = new byte[1024];
                 long total = 0;
@@ -155,9 +174,9 @@ public class SecondFragment extends Fragment {
 //                 request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,"Music_file"+"");
 //                This function will store the file in app local directory
          if(t==1)
-            request.setDestinationInExternalFilesDir(getContext(),Environment.DIRECTORY_DOWNLOADS,"Music_file");
+            request.setDestinationInExternalFilesDir(getContext(),Environment.DIRECTORY_DOWNLOADS,"pradeep.mp3");
          if(t==2)
-             request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,"Music_file");
+             request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,"pradeep.mp3");
 
         Toast.makeText(getContext()," Connected to the webserver",Toast.LENGTH_SHORT).show();
         downloadManager.enqueue(request);

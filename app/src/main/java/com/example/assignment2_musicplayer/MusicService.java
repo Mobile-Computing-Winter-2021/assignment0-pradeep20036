@@ -24,6 +24,8 @@ import java.io.IOException;
 
 public class MusicService extends Service {
 
+    String downloaded="/storage/emulated/0/Android/data/com.example.assignment2_musicplayer/files/Download/pradeep.mp3";
+
     MediaPlayer musicPlayer;
     public static final String CHANNEL_ID = "service_channel";
     @Nullable
@@ -55,44 +57,64 @@ public class MusicService extends Service {
         startForeground(1,notification);
 
 //        checking if the service is already running or not??
+
         if(musicPlayer!=null)
         {
             musicPlayer.stop();
         }
-
-        String songName =intent.getStringExtra("song");
-        if(songName==null)
-            songName="alexander";
+//
+            String songName =intent.getStringExtra("song");
+            if(songName==null)
+                songName="alexander";
 
 //        selecting the clicked music file to play in the player
-        int myUri=0;
-        switch (songName)
-        {
-            case "alexander":
-                myUri =R.raw.alexander;
-                break;
-            case "hawayein":
-                myUri =R.raw.hawayein;
-                break;
-            case "mirzapur":
-                myUri =R.raw.mirzapur;
-                break;
-            case "arkansas":
-                myUri =R.raw.arkansas;
-                break;
-            case "inspire":
-                myUri =R.raw.inspire;
-                break;
-            case "sauda":
-                myUri =R.raw.sauda;
-                break;
-            case "warriyo":
-                myUri =R.raw.warriyo;
-                break;
-        }
+            int myUri=0;
+            switch (songName)
+            {
+                case "alexander":
+                    myUri =R.raw.alexander;
+                    break;
+                case "hawayein":
+                    myUri =R.raw.hawayein;
+                    break;
+                case "mirzapur":
+                    myUri =R.raw.mirzapur;
+                    break;
+                case "arkansas":
+                    myUri =R.raw.arkansas;
+                    break;
+                case "inspire":
+                    myUri =R.raw.inspire;
+                    break;
+                case "sauda":
+                    myUri =R.raw.sauda;
+                    break;
+                case "warriyo":
+                    myUri =R.raw.warriyo;
+                    break;
+                case "downloaded":
+                {
+                     musicPlayer=new MediaPlayer();
+                    try {
+                        musicPlayer.setDataSource(downloaded);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        musicPlayer.prepare();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    musicPlayer.start();
 
-        musicPlayer=MediaPlayer.create(this,myUri);
-        musicPlayer.start();
+                    return START_STICKY;
+
+                }
+            }
+
+            musicPlayer=MediaPlayer.create(this,myUri);
+            musicPlayer.start();
+
         return START_STICKY;
     }
 
