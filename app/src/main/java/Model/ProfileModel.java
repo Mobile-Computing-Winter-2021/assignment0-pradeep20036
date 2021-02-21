@@ -6,12 +6,22 @@ public class ProfileModel {
     String email_id;
     String roll_number;
     String person_branch;
+    int pic;
 
-    public ProfileModel(String person_name, String email_id, String roll_number, String person_branch) {
+
+    public ProfileModel(String person_name, String email_id, String roll_number, String person_branch, int pic) {
         this.person_name = person_name;
         this.email_id = email_id;
         this.roll_number = roll_number;
         this.person_branch = person_branch;
+        this.pic=pic;
+    }
+    public int getPic() {
+        return pic;
+    }
+
+    public void setPic(int pic) {
+        this.pic = pic;
     }
 
     public String getPerson_name() {

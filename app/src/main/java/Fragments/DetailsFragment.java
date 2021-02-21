@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,18 +42,20 @@ public class DetailsFragment extends Fragment {
         EditText tv_rollno;
         EditText tv_email;
         EditText tv_branch;
-
+        ImageView profile_pic;
         tv_name=view.findViewById(R.id.tv_name_display);
         tv_rollno=view.findViewById(R.id.tv_rollnumber_display);
         tv_email=view.findViewById(R.id.tv_email_display);
         tv_branch=view.findViewById(R.id.tv_branch_display);
+        profile_pic=view.findViewById(R.id.iv_imageProfile);
+
 
         ProfileModel person_profile=profiles.get(position);
         tv_name.setText(person_profile.getPerson_name());
         tv_rollno.setText(person_profile.getRoll_number());
         tv_email.setText(person_profile.getEmail_id());
         tv_branch.setText(person_profile.getPerson_branch());
-
+        profile_pic.setImageResource(person_profile.getPic());
 
         btn_back=view.findViewById(R.id.bt_back);
         btn_edit=view.findViewById(R.id.bt_edit);
