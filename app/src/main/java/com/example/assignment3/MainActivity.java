@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
         if(savedInstanceState==null)
         {
             profiles=new ArrayList<>();
+            System.out.println("Creating New ArrayList");
             profiles.add(new ProfileModel("pradeep Kumar","pradeep20036@gmail.com","MT20036","CSE"));
             profiles.add(new ProfileModel("Nitika Bansal","Nitika20032@gmail.com","MT20036","CSE"));
             profiles.add(new ProfileModel("Akanksha Pandey","pradeep20031@gmail.com","MT20036","CSE"));
@@ -31,18 +32,18 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
             profiles.add(new ProfileModel("Deepankar Kansal","deep20029@gmail.com","MT20036","CSE"));
         }
 //        Calling ListFragment to display the Fragment
+
+        System.out.println("Arraylist: mainactivity"+profiles);
+
         FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container,new RecyclerFragment(profiles,this));
         fragmentTransaction.commit();
-
-        Toast.makeText(this,"yes",Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
     public void onItemClick(int position) {
 
-    Toast.makeText(this,"This is main Activity",Toast.LENGTH_SHORT).show();
         FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container,new DetailsFragment(profiles,position));
         fragmentTransaction.commit();

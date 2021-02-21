@@ -30,7 +30,7 @@
             android:layout_height="215dp"
             android:src="@drawable/student" />
 
-        <TextView
+        <EditText
             android:id="@+id/tv_name_display"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
             android:text="Pradeep Kumar"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/tv_rollnumber_display"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             android:text="MT20036"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/tv_email_display"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,10 +63,10 @@
             android:text="pradeep20036@iiitd.ac.in"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/tv_branch_display"
             android:layout_width="match_parent"
-            android:layout_height="29dp"
+            android:layout_height="50dp"
             android:layout_margin="10dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/aldrich"
@@ -82,13 +82,13 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/bt_save"
+                android:id="@+id/bt_edit"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/round_corner"
-                android:text="Save" />
+                android:text="Edit" />
 
             <Button
                 android:id="@+id/bt_back"

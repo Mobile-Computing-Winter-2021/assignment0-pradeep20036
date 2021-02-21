@@ -9,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.assignment3.MainActivity;
 import com.example.assignment3.R;
@@ -21,7 +23,7 @@ import Model.ProfileModel;
 public class DetailsFragment extends Fragment {
 
 
-    Button btn_save;
+    Button btn_edit;
     Button btn_back;
     ArrayList<ProfileModel> profiles;
     int position;
@@ -35,10 +37,10 @@ public class DetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_details, container, false);
-        TextView tv_name;
-        TextView tv_rollno;
-        TextView tv_email;
-        TextView tv_branch;
+        EditText tv_name;
+        EditText tv_rollno;
+        EditText tv_email;
+        EditText tv_branch;
 
         tv_name=view.findViewById(R.id.tv_name_display);
         tv_rollno=view.findViewById(R.id.tv_rollnumber_display);
@@ -51,7 +53,29 @@ public class DetailsFragment extends Fragment {
         tv_email.setText(person_profile.getEmail_id());
         tv_branch.setText(person_profile.getPerson_branch());
 
+
         btn_back=view.findViewById(R.id.bt_back);
+        btn_edit=view.findViewById(R.id.bt_edit);
+
+        btn_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(),"Edit Text Enabled",Toast.LENGTH_SHORT).show();
+
+                ProfileModel person_profile=profiles.get(position);
+
+                System.out.println("Arraylist: Details Fragment"+profiles);
+
+                person_profile.setPerson_name(tv_name.getText().toString());
+                person_profile.setRoll_number(tv_rollno.getText().toString());
+                person_profile.setEmail_id(tv_email.getText().toString());
+                person_profile.setPerson_branch(tv_branch.getText().toString());
+
+            }
+        });
+
+
+
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
