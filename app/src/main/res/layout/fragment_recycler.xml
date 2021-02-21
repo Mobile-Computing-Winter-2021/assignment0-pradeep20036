@@ -23,6 +23,7 @@
         android:background="@drawable/round_corner"
         android:padding="10dp"
         android:text="MC STUDENT LIST"
+        android:textColor="#FFFFFF"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerview"
         app:layout_constraintEnd_toEndOf="parent"

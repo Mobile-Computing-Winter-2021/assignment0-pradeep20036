@@ -37,7 +37,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
             profiles.add(new ProfileModel("Nitika Bansal", "Nitika20035@iiitd.ac.in", "MT20035", "CSE",R.drawable.nikita));
             profiles.add(new ProfileModel("Akanksha Pandey", "akanksha20048@iiitd.ac.in", "MT20048", "CSE",R.drawable.akanksha));
             profiles.add(new ProfileModel("Shivank Agrahari", "pradsddeep20030@iiitd.ac.in", "MT20096", "CSE",R.drawable.shivank));
-            profiles.add(new ProfileModel("Deepankar Kansal", "deep20029@iiitd.ac.in", "MT20029", "CSE",R.drawable.student));
+            profiles.add(new ProfileModel("Deepankar Kansal", "deepankar20007@iiitd.ac.in", "MT20007", "CSE",R.drawable.deepankar));
             profiles.add(new ProfileModel("Divya Pandey", "Divya20128@iiitd.ac.in", "MT20128", "CSE",R.drawable.divya));
             profiles.add(new ProfileModel("Shreya Garg", "shreya20133@iiitd.ac.in", "MT20133", "CSE",R.drawable.student));
             profiles.add(new ProfileModel("Rahul Gupta", "rahul20311@iiitd.ac.in", "MT20311", "CSE",R.drawable.student));

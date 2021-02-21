@@ -22,6 +22,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:text="STUDENT DETAILS"
+            android:textColor="#FFFFFF"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -89,7 +90,9 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/round_corner"
-                android:text="Edit" />
+                android:text="Save Edit"
+                android:textColor="#EFEFEF"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/bt_back"
@@ -98,7 +101,9 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/round_corner"
-                android:text="Back" />
+                android:text="Back"
+                android:textColor="#EFEFEF"
+                android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
 
