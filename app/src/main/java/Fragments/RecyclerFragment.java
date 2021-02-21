@@ -20,10 +20,8 @@ import Adapter.ProfileAdapter;
 import Model.ProfileModel;
 
 public class RecyclerFragment extends Fragment {
-    ArrayList<ProfileModel> profiles;
     RecyclerViewClickInterface recyclerViewClickInterface;
-    public RecyclerFragment(ArrayList<ProfileModel> list,   RecyclerViewClickInterface recyclerViewClickInterface) {
-        this.profiles=list;
+    public RecyclerFragment( RecyclerViewClickInterface recyclerViewClickInterface) {
         this.recyclerViewClickInterface=recyclerViewClickInterface;
     }
 
@@ -37,7 +35,7 @@ public class RecyclerFragment extends Fragment {
         recyclerView=view.findViewById(R.id.recyclerview);
 
 //        passing data to the list
-        ProfileAdapter adapter=new ProfileAdapter(profiles,getContext(),recyclerViewClickInterface);
+        ProfileAdapter adapter=new ProfileAdapter(getContext(),recyclerViewClickInterface);
 //setting the adapter
         recyclerView.setAdapter(adapter);
 
