@@ -3,12 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context="Fragments.DetailsFragment">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="top"
+        android:layout_margin="5dp"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="5dp">
@@ -26,11 +28,20 @@
             android:textSize="22sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/iv_imageProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="215dp"
-            android:src="@drawable/student" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="204dp"
+            android:background="@drawable/round_corner"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/iv_imageProfile"
+                android:layout_width="210dp"
+                android:layout_height="215dp"
+                android:src="@drawable/student" />
+        </LinearLayout>
 
         <EditText
             android:id="@+id/tv_name_display"
@@ -41,7 +52,8 @@
             android:fontFamily="@font/aldrich"
             android:gravity="center"
             android:text="Pradeep Kumar"
-            android:textSize="20sp" />
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/tv_rollnumber_display"
@@ -52,7 +64,8 @@
             android:fontFamily="@font/aldrich"
             android:gravity="center"
             android:text="MT20036"
-            android:textSize="20sp" />
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/tv_email_display"
@@ -63,7 +76,8 @@
             android:fontFamily="@font/aldrich"
             android:gravity="center"
             android:text="pradeep20036@iiitd.ac.in"
-            android:textSize="20sp" />
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/tv_branch_display"
@@ -74,11 +88,12 @@
             android:fontFamily="@font/aldrich"
             android:gravity="center"
             android:text="Data Engineering"
-            android:textSize="20sp" />
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="142dp"
+            android:layout_height="125dp"
             android:layout_marginTop="30dp"
             android:gravity="center"
             android:orientation="vertical">
