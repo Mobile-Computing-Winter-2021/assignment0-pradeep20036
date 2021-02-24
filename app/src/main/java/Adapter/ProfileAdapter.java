@@ -57,6 +57,20 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
             profiles.add(new ProfileModel("Suverna Bisht", "suverna20125@iiitd.ac.in", "MT20125", "CSE",R.drawable.student));
             profiles.add(new ProfileModel("Pragya Pal", "PragyaPal@iiitd.ac.in", "MT20309", "CSE",R.drawable.student));
 
+            profiles.add(new ProfileModel("Deepankar Sarkar", "deepankar20307@iiitd.ac.in", "MT20307", "CSE",R.drawable.student));
+            profiles.add(new ProfileModel("Suverna Bisht", "suverna20125@iiitd.ac.in", "MT20125", "CSE",R.drawable.student));
+            profiles.add(new ProfileModel("Pragya Pal", "PragyaPal@iiitd.ac.in", "MT20309", "CSE",R.drawable.student));
+            profiles.add(new ProfileModel("Akanksha Pandey", "pradeep20031@iiitd.ac.in", "MT20036", "CSE",R.drawable.student));
+            profiles.add(new ProfileModel("Deepankar Kansal", "deep20029@iiitd.ac.in", "MT20036", "CSE",R.drawable.student));
+            profiles.add(new ProfileModel("Divya Pandey", "Divya20128@iiitd.ac.in", "MT20128", "CSE",R.drawable.divya));
+            profiles.add(new ProfileModel("Shreya Garg", "shreya20133@iiitd.ac.in", "MT20133", "CSE",R.drawable.student));
+            profiles.add(new ProfileModel("Rahul Gupta", "rahul20311@iiitd.ac.in", "MT20311", "CSE",R.drawable.student));
+            profiles.add(new ProfileModel("Mansi Bansal", "mansi20132@iiitd.ac.in", "MT20132", "CSE",R.drawable.student));
+            profiles.add(new ProfileModel("Deepankar Sarkar", "deepankar20307@iiitd.ac.in", "MT20307", "CSE",R.drawable.student));
+            profiles.add(new ProfileModel("Suverna Bisht", "suverna20125@iiitd.ac.in", "MT20125", "CSE",R.drawable.student));
+            profiles.add(new ProfileModel("Pragya Pal", "PragyaPal@iiitd.ac.in", "MT20309", "CSE",R.drawable.student));
+
+//
 //
 //            MT20131	Kajal Rawat
 //            MT20121	Shivam Sharma

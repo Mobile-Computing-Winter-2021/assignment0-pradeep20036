@@ -63,7 +63,7 @@ public class DetailsFragment extends Fragment {
         btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Toast.makeText(getContext(),"Edit Text Enabled",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Edit Sucess",Toast.LENGTH_SHORT).show();
 
                 ProfileModel person_profile=profiles.get(position);
 
