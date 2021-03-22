@@ -6,10 +6,10 @@ import androidx.room.PrimaryKey;
 public class Temperature_data {
 
     @PrimaryKey(autoGenerate = true)
-    String time;
-    double temperature;  // temp in celcius
+    public long time;
+    public double temperature;  // temp in celcius
 
-    public Temperature_data(String time, double temperature) {
+    public Temperature_data(long time, double temperature) {
         this.time = time;
         this.temperature = temperature;
     }

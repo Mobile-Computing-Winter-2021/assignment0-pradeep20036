@@ -8,10 +8,10 @@ import androidx.room.PrimaryKey;
 public class Proximity_data {
 
     @PrimaryKey(autoGenerate = true)
-    String time;
-    double distance;
+    public long time;
+    public double distance;
 
-    public Proximity_data(String time, double distance) {
+    public Proximity_data(long time, double distance) {
         this.time = time;
         this.distance = distance;
     }

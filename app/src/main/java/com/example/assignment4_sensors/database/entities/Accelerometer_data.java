@@ -7,12 +7,12 @@ import androidx.room.PrimaryKey;
 public class Accelerometer_data {
 
     @PrimaryKey(autoGenerate = true)
-    String time;
-    double x_dir;
-    double y_dir;
-    double z_dir;
+    public long time;
+    public double x_dir;
+    public double y_dir;
+    public double z_dir;
 
-    public Accelerometer_data(String time,double x_dir, double y_dir, double z_dir) {
+    public Accelerometer_data(long time,double x_dir, double y_dir, double z_dir) {
         this.x_dir = x_dir;
         this.y_dir = y_dir;
         this.z_dir = z_dir;
@@ -31,9 +31,17 @@ public class Accelerometer_data {
         return z_dir;
     }
 
-    public String getTime() {
+    public long getTime() {
         return time;
     }
 
-
+    @Override
+    public String toString() {
+        return "Accelerometer_data{" +
+                "time=" + time +
+                ", x_dir=" + x_dir +
+                ", y_dir=" + y_dir +
+                ", z_dir=" + z_dir +
+                '}';
+    }
 }

@@ -8,12 +8,12 @@ import androidx.room.PrimaryKey;
 public class LinearAcceleration_data {
 
     @PrimaryKey(autoGenerate = true)
-    String time;
-    double x_dir;
-    double y_dir;
-    double z_dir;
+   public long time;
+    public double x_dir;
+    public double y_dir;
+    public double z_dir;
 
-    public LinearAcceleration_data(String time,double x_dir, double y_dir, double z_dir) {
+    public LinearAcceleration_data(long time,double x_dir, double y_dir, double z_dir) {
         this.x_dir = x_dir;
         this.y_dir = y_dir;
         this.z_dir = z_dir;

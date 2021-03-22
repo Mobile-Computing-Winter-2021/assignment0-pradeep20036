@@ -8,12 +8,15 @@ import androidx.room.PrimaryKey;
 public class Light_data {
 
     @PrimaryKey(autoGenerate = true)
-    String time;
-    double light_lux;  // light in lux
+    public long time;
+    public double light_lux;  // light in lux
 
-    public Light_data(String time, double light_lux) {
+    public Light_data(long time, double light_lux) {
         this.time = time;
         this.light_lux = light_lux;
     }
 
+    public double getLight_lux() {
+        return light_lux;
+    }
 }
