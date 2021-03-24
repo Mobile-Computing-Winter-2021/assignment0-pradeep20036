@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/tv_results"
-        android:layout_width="317dp"
-        android:layout_height="46dp"
+        android:layout_width="323dp"
+        android:layout_height="79dp"
         android:background="#000000"
         android:gravity="center"
         android:text="Results"
@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.756" />
+        app:layout_constraintVertical_bias="0.796" />
 
     <TextView
         android:id="@+id/textView2"
@@ -85,8 +85,8 @@
         android:id="@+id/bt_avgTemperature"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:onClick="avgLightData"
-        android:text="Average Light Data"
+        android:onClick="avgTempData"
+        android:text="Average Temperature"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -168,14 +168,16 @@
         android:id="@+id/tv_motionDetection"
         android:layout_width="306dp"
         android:layout_height="48dp"
+        android:background="#E91E63"
         android:gravity="center"
         android:text="TextView"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863" />
+        app:layout_constraintVertical_bias="0.925" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -88,21 +88,16 @@ public class MainActivity extends AppCompatActivity {
 
                     if(motionDetectionUnabled){
                         float result= (float) Math.sqrt(x*x+y*y+z*z);
-                        System.out.println(result+":  "+previous);
                         System.out.println("absolute value: " +Math.abs(result-previous));
-                        if(Math.abs(result-previous)>0.2) {
+                        if(Math.abs(result-9.8)>0.1) {
 
                             tv_motionDetector.setText("Moving");
                             tv_motionDetector.setVisibility(View.VISIBLE);
-                            System.out.println("difference Reached");
-                            System.out.println("Moving");
-                            count++;
                         }
                         else{
                             tv_motionDetector.setText("Not Moving");
                             tv_motionDetector.setVisibility(View.VISIBLE);
                         }
-                        previous=result;
                     }else{
                         tv_motionDetector.setVisibility(View.INVISIBLE);
                     }
@@ -164,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                     });
 
 
-                } else if (sensor.getType() == Sensor.TYPE_TEMPERATURE) {
+                } else if (sensor.getType() == Sensor.TYPE_AMBIENT_TEMPERATURE) {
                     System.out.println("sensor Temperature");
 
                     long time = System.currentTimeMillis();
@@ -228,13 +223,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void controlTemperature(View view) {
         if(temperature.isChecked()){
-            Sensor sensor=sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY);
+            Toast.makeText(this,"Temperature Sensor Running",Toast.LENGTH_SHORT).show();
+            Sensor sensor=sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
             if(sensor==null){
                 Toast.makeText(this,"This sensor is not Available",Toast.LENGTH_SHORT).show();
             }
-            sensorManager.registerListener(sensorEventListener, sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY ), SensorManager.SENSOR_DELAY_GAME);
+            sensorManager.registerListener(sensorEventListener, sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE ), SensorManager.SENSOR_DELAY_GAME);
         }else{
-            Sensor sensor=sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY);
+            Sensor sensor=sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
             sensorManager.unregisterListener(sensorEventListener,sensor);
         }
     }
@@ -269,7 +265,7 @@ public class MainActivity extends AppCompatActivity {
 
                     System.out.println(avg_x/table.size()+":  "+avg_y/table.size()+" :"+avg_z/table.size());
 
-                    String result="X :"+String.format("%.3f",avg_x/table.size())+"   Y: "+String.format("%.3f",avg_y/table.size())+"   Z:   "+String.format("%.3f",avg_z/table.size());
+                    String result="X :"+String.format("%.3f ",avg_x/table.size())+"   Y: "+String.format("%.3f",avg_y/table.size())+"   Z: "+String.format("%.3f",avg_z/table.size());
                     tv_result.setText(result);
                 }
                 else
@@ -313,5 +309,28 @@ public class MainActivity extends AppCompatActivity {
         else{
             motionDetectionUnabled=false;
         }
+    }
+
+    public void avgTempData(View view) {
+        SensorsDatabase.databaseWriteExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                if(sensorsDatabase!=null){
+                    long time= System.currentTimeMillis();
+                    List<Temperature_data> table=sensorsDatabase.sensorsDao().getOneHourTemperatureData(time);
+
+                    double avg_temp=0;
+
+                    for(Temperature_data row: table){
+                        avg_temp+=row.temperature;
+                    }
+
+                    String result="Avg Temp :"+String.format("%.3f",avg_temp/table.size());
+                    tv_result.setText(result);
+                }
+                else
+                    System.out.println("database is null");
+            }
+        });
     }
 }

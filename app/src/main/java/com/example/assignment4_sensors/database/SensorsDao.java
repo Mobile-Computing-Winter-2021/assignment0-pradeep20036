@@ -47,6 +47,11 @@ public interface SensorsDao {
     @Query("select * from lightdata_table where time>:current_time-3600000")
     public List<Light_data> getOneHourDataLight(long current_time);
 
+    @Query("select * from temperature_table where time>:current_time-3600000")
+    public List<Temperature_data> getOneHourTemperatureData(long current_time);
+
+
+
     @Query("select * from lightdata_table")
     public List<Light_data> getLightData();
 
