@@ -1,8 +1,12 @@
 package com.example.assignment4_sensors;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -37,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     Switch light;
     Switch proximity;
     Switch temperature;
+
+    GPSDataListener gpsDataListener;
+
     TextView tv_result;
     TextView tv_motionDetector;
     SensorsDatabase sensorsDatabase;
@@ -237,10 +244,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void controlGps(View view) {
         if(gps.isChecked()){
-            sensorManager.registerListener(sensorEventListener, sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY), SensorManager.SENSOR_DELAY_GAME);
+            if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) !=
+                    PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(MainActivity.this, new String[]{
+                        Manifest.permission.ACCESS_FINE_LOCATION
+                }, 000);
+            }
+            gpsDataListener = new GPSDataListener(getApplication());
+            Toast.makeText(getApplicationContext(),"Location Sensing Started",Toast.LENGTH_SHORT).show();
+
         }else{
-            Sensor sensor=sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
-            sensorManager.unregisterListener(sensorEventListener,sensor);
+            gpsDataListener.stopGettingLocationUpdates();
+            Toast.makeText(getApplicationContext(),"Proximity Sensing Stopped",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -325,7 +340,7 @@ public class MainActivity extends AppCompatActivity {
                         avg_temp+=row.temperature;
                     }
 
-                    String result="Avg Temp :"+String.format("%.3f",avg_temp/table.size());
+                    String result="Avg Temp :"+String.format("%.2f",avg_temp/table.size())+" degree C";
                     tv_result.setText(result);
                 }
                 else

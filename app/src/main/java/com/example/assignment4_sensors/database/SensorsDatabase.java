@@ -17,7 +17,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Database(entities={Accelerometer_data.class, Gps_data.class, Light_data.class, LinearAcceleration_data.class,
-        Proximity_data.class, Temperature_data.class },version = 1,exportSchema = false)
+        Proximity_data.class, Temperature_data.class },version = 2,exportSchema = false)
 public abstract class SensorsDatabase extends RoomDatabase
 {
     public abstract SensorsDao sensorsDao();
@@ -33,6 +33,7 @@ public abstract class SensorsDatabase extends RoomDatabase
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             SensorsDatabase.class, "sensors_database")
+                             .fallbackToDestructiveMigration()
                             .build();
                 }
             }
