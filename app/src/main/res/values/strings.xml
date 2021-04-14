@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Assignment5</string>
+    <string name="wifi_disabling_msg">Wifi is disabled</string>
+    <string name="wifi_disabled_msg">wif state disabled</string>
+    <string name="wifi_enabling_msg">enable wifi state</string>
+    <string name="wifi_enabled_msg">wifi state enabled</string>
+    <string name="wifi_unknown_state_msg">unknown error</string>
+    <string name="wifi_is_not_enabled_msg">wifi is not enalbled</string>
+</resources>

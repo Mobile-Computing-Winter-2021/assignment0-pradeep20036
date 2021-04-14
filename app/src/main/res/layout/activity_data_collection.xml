@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityDataCollection">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="220dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Data Collection and Testing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_rooms"
+        android:layout_width="194dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="Enter the Number of Room"
+        app:layout_constraintBottom_toTopOf="@+id/bt_ok"
+        app:layout_constraintEnd_toStartOf="@+id/et_number"
+        app:layout_constraintHorizontal_bias="0.418"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.068" />
+
+    <EditText
+        android:id="@+id/et_number"
+        android:layout_width="127dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/tv_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.117" />
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="343dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="200dp"
+        android:gravity="center"
+        android:text="Press Get RSSI to take values for Room Number 1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/getRssiValues"
+        android:layout_width="174dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="268dp"
+        android:onClick="getRssiValues"
+        android:text=" Get RSSI Values"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_message"
+        app:layout_constraintVertical_bias="0.851" />
+
+    <Button
+        android:id="@+id/bt_checkLocation"
+        android:layout_width="284dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="116dp"
+        android:onClick="checkLocation"
+        android:text="Check your Present Location"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/getRssiValues" />
+
+    <Button
+        android:id="@+id/bt_ok"
+        android:layout_width="117dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="116dp"
+        android:onClick="setRooms"
+        android:text="Submit"
+        app:layout_constraintBottom_toTopOf="@+id/tv_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="203dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="76dp"
+        android:gravity="center"
+        android:text="Your Current Location"
+        app:layout_constraintBottom_toTopOf="@+id/bt_checkLocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/getRssiValues"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
