@@ -27,6 +27,7 @@ import androidx.core.content.ContextCompat;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.assignment5.database.SensorsDatabase;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
@@ -39,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
     private WifiInfo wifiInfo;
     ArrayList<String> namesConnection;
     ArrayList<Integer> signalStrength;
+
+
+
+
     //    private WifiReceiver receiver;
     private ListView networksList;
     private List<ScanResult> results;
@@ -49,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        tv=findViewById(R.id.textView);
+
+
+
         wifiManager=(WifiManager)getSystemService(Context.WIFI_SERVICE);
         wifiReceiver=new WifiReceiver();
         wifiInfo=wifiManager.getConnectionInfo();
@@ -118,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void dataCollection(View view) {
-
         Intent i = new Intent(getApplicationContext(),ActivityDataCollection.class);
         startActivity(i);
     }
