@@ -66,7 +66,6 @@ public class ActivityDataCollection extends AppCompatActivity {
 
         message=findViewById(R.id.tv_message);
         result=findViewById(R.id.tv_result);
-        result.setVisibility(View.INVISIBLE);
         wifiReceiver=new WifiReceiver1();
         wifiInfo=wifiManager.getConnectionInfo();
         database=new ArrayList<>();
@@ -82,7 +81,7 @@ public class ActivityDataCollection extends AppCompatActivity {
     }
 
     private void scanWifi() {
-        Toast.makeText(getApplicationContext(),"Getting RSSI Values",Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(),"Getting RSSI Values",Toast.LENGTH_SHORT).show();
         wifiManager.startScan();
         results=wifiManager.getScanResults();
         namesConnection=new ArrayList<>();
@@ -182,7 +181,11 @@ public class ActivityDataCollection extends AppCompatActivity {
 
         });
 
+        updateui();
         }
+
+    private void updateui() {
+    }
 
     public int distance(ArrayList<Integer>list1,ArrayList<Integer>list2){
         int distance=0;
@@ -205,14 +208,14 @@ public class ActivityDataCollection extends AppCompatActivity {
         int dist2=distance(ans,ans2);
         int dist3=distance(ans,ans3);
 
-        if (dist1 > dist2) {
-            if(dist1>dist3){
+        if (dist1 < dist2) {
+            if(dist1<dist3){
                 room=1;
             }else{
                 room=3;
             }
         }else{
-            if(dist2>dist3){
+            if(dist2<dist3){
                 room=2;
             }else{
                 room=3;
@@ -220,7 +223,7 @@ public class ActivityDataCollection extends AppCompatActivity {
         }
 
         result.setText("Location Room: "+room);
-
+        System.out.println("location Room "+room);
 //        computing the similarity
 
     }
@@ -272,6 +275,19 @@ public class ActivityDataCollection extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(),"Room3 data Successfully Inserted: reading: "+(room3+1),Toast.LENGTH_SHORT).show();
         room3++;
+    }
+
+    public void resetDatabase(View view) {
+
+        SensorsDatabase.databaseWriteExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                sensorsDatabase.sensorsDao().deleteAllRoom1();
+                sensorsDatabase.sensorsDao().deleteAllRoom2();
+                sensorsDatabase.sensorsDao().deleteAllRoom3();
+            }
+        });
+
     }
 
     class WifiReceiver1 extends BroadcastReceiver {
