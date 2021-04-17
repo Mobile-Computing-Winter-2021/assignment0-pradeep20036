@@ -64,7 +64,7 @@ public class ActivityDataCollection extends AppCompatActivity {
 
         sensorsDatabase = SensorsDatabase.getDatabase(this);
 
-        message=findViewById(R.id.tv_message);
+//        message=findViewById(R.id.tv_message);
         result=findViewById(R.id.tv_result);
         wifiReceiver=new WifiReceiver1();
         wifiInfo=wifiManager.getConnectionInfo();
@@ -175,7 +175,8 @@ public class ActivityDataCollection extends AppCompatActivity {
 
 //                getting the location...
 
-            getRoomLocation(ans1,ans3,ans5);
+//            getRoomLocation(ans1,ans3,ans5);
+            getRoomLocationVersion2(table1,table2,table3);
 
             }
 
@@ -193,6 +194,58 @@ public class ActivityDataCollection extends AppCompatActivity {
             distance+=Math.abs(list1.get(i)-list2.get(i))*Math.abs(list1.get(i)-list2.get(i));
         }
         return (int)Math.pow(distance,0.5);
+    }
+
+
+    private void getRoomLocationVersion2(List<Room1> table1,List<Room2> table2,List<Room3>table3){
+
+//        getting your current location
+        scanWifi();
+        ArrayList<Integer> current=signalStrength;
+
+        int min1=Integer.MAX_VALUE;
+        for(Room1 entry: table1){
+            int dist=distance(Conversion.convertToArrayList(entry.data),current);
+            min1=Math.min(min1,dist);
+        }
+
+        int min2=Integer.MAX_VALUE;
+        for(Room2 entry: table2){
+            int dist=distance(Conversion.convertToArrayList(entry.data),current);
+            min2=Math.min(min2,dist);
+        }
+
+        int min3=Integer.MAX_VALUE;
+        for(Room3 entry: table3){
+            int dist=distance(Conversion.convertToArrayList(entry.data),current);
+            min3=Math.min(min3,dist);
+        }
+
+        int room=1;
+
+
+
+        int dist1=min1;
+        int dist2=min2;
+        int dist3=min3;
+
+        if (dist1 < dist2) {
+            if(dist1<dist3){
+                room=1;
+            }else{
+                room=3;
+            }
+        }else{
+            if(dist2<dist3){
+                room=2;
+            }else{
+                room=3;
+            }
+        }
+
+        result.setText("Location Room: "+room);
+
+
     }
 
     private void getRoomLocation(ArrayList<Integer> ans1,ArrayList<Integer> ans2,ArrayList<Integer>ans3) {

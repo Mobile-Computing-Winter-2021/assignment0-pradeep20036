@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Integer> signalStrength;
 
 
-
-
     //    private WifiReceiver receiver;
     private ListView networksList;
     private List<ScanResult> results;
@@ -80,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         namesConnection=new ArrayList<>();
         signalStrength=new ArrayList<>();
 
-        int count =3;
+        int count =8;
         for(ScanResult wifi: results){
             namesConnection.add(wifi.SSID);
             signalStrength.add(wifi.level);
@@ -128,6 +126,17 @@ public class MainActivity extends AppCompatActivity {
     public void dataCollection(View view) {
         Intent i = new Intent(getApplicationContext(),ActivityDataCollection.class);
         startActivity(i);
+    }
+
+    public void listView(View view) {
+        Intent intent = new Intent(getApplicationContext(), ListViewActivity.class);
+        intent.putExtra("wifiname", namesConnection);
+        intent.putExtra("signalStrength", signalStrength);
+        startActivity(intent);
+
+
+
+
     }
 
     class WifiReceiver extends BroadcastReceiver{

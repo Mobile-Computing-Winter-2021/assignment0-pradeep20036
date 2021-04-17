@@ -40,7 +40,7 @@
         android:text="Data Collection" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/bt_listview"
         android:layout_width="163dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/bt_strength"
@@ -48,6 +48,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="72dp"
         android:layout_marginBottom="124dp"
+        android:onClick="listView"
         android:text="List of wifi" />
 
 </RelativeLayout>
