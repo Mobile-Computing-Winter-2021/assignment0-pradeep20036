@@ -95,25 +95,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+   /*
+   below plot() code is not my original work... I have used github repo for plotting chart and their refrence code
+    */
     public void plot(){
         BarChart barChart = (BarChart) findViewById(R.id.barchart);
         ArrayList<BarEntry> entries = new ArrayList<>();
         for(int i=0;i<namesConnection.size();i++){
             entries.add(new BarEntry(signalStrength.get(i), i));
         }
-
         BarDataSet bardataset = new BarDataSet(entries, "Connections");
         ArrayList<String> labels = new ArrayList<String>();
-
         for(int i=0;i<namesConnection.size();i++){
             labels.add(namesConnection.get(i));
         }
 
-        BarData data = new BarData(labels, bardataset);
-        barChart.setData(data); // set the data and list of labels into chart
-        barChart.setDescription("Set Bar Chart Description Here");  // set the description
-        bardataset.setColors(ColorTemplate.COLORFUL_COLORS);
-        barChart.animateY(5000);
+        BarData values = new BarData(labels, bardataset);
+        barChart.setData(values); // set the data and list of labels into chart
+        barChart.setDescription("Wifi Names along with the Signal Strength");
+        bardataset.setColors(ColorTemplate.JOYFUL_COLORS);
+        barChart.animateY(6000);
         BarData.generateXVals(0,2);
 
     }
@@ -133,9 +134,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("wifiname", namesConnection);
         intent.putExtra("signalStrength", signalStrength);
         startActivity(intent);
-
-
-
 
     }
 

@@ -176,7 +176,7 @@ public class ActivityDataCollection extends AppCompatActivity {
 //                getting the location...
 
 //            getRoomLocation(ans1,ans3,ans5);
-            getRoomLocationVersion2(table1,table2,table3);
+            knn_1(table1,table2,table3);
 
             }
 
@@ -197,8 +197,15 @@ public class ActivityDataCollection extends AppCompatActivity {
     }
 
 
-    private void getRoomLocationVersion2(List<Room1> table1,List<Room2> table2,List<Room3>table3){
+    private void knn_1(List<Room1> table1,List<Room2> table2,List<Room3>table3){
 
+
+////        algorithm
+//        Given a new item:
+//        1. Find distances between new item and all other items
+//        2. Pick k shorter distances
+//        3. Pick the most common class in these k distances
+//        4. That class is where we will classify the new item
 //        getting your current location
         scanWifi();
         ArrayList<Integer> current=signalStrength;
@@ -248,6 +255,15 @@ public class ActivityDataCollection extends AppCompatActivity {
 
     }
 
+    public void locationUsingKnn(){
+
+
+
+
+    }
+
+
+
     private void getRoomLocation(ArrayList<Integer> ans1,ArrayList<Integer> ans2,ArrayList<Integer>ans3) {
 
         scanWifi();
@@ -284,6 +300,9 @@ public class ActivityDataCollection extends AppCompatActivity {
     int room1=0;
     int room2=0;
     int room3=0;
+
+
+
 
     public void getRssiRoom1(View view) {
         scanWifi();
